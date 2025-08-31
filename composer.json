@@ -1,0 +1,9 @@
+{
+  "name": "buntywp/comments-plus-plus",
+	"require": {},
+  "autoload": {
+    "psr-4": {
+      "CommentsPlusPlus\\": "app/"
+    }
+  }
+}
