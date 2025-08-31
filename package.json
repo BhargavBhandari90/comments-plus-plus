@@ -3,13 +3,13 @@
 	"version": "1.0.0",
 	"description": "A different experience of commenting.",
 	"scripts": {
-		"build": "wp-scripts build ./assets/js/plugin.js --output-path=./build --output-filename=plugin.js",
+		"build": "wp-scripts build ./assets/js/main.js --output-path=./build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start ./assets/js/plugin.js --output-path=./build --output-filename=plugin.js"
+		"start": "wp-scripts start ./assets/js/main.js --output-path=./build"
 	},
 	"keywords": [
 		"commenting",

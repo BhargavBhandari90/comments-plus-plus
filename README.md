@@ -1,4 +1,4 @@
-# Comment Plus Plus #
+# Comments Plus Plus #
 **Contributors:** [bhargavbhandari90](https://profiles.wordpress.org/bhargavbhandari90/)  
 **Donate link:** https://www.paypal.me/BnB90/20  
 **Tags:** plugin  
