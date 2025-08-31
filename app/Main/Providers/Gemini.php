@@ -48,7 +48,7 @@ class Gemini extends Provider {
 		}
 
 		$model       = $this->settings['gemini_model'] ?? 'gemini-1.5-flash-latest';
-		$url         = "https://generativelanguage.googleapis.com/v1/{$model}:generateContent?key={$api_key}";
+		$url         = 'https://generativelanguage.googleapis.com/v1/' . $model . ':generateContent?key=' . rawurlencode( $api_key );
 		$full_prompt = $prompt . "\n\nInput: $input\nOutput:";
 
 		$response = wp_remote_post(
@@ -73,13 +73,13 @@ class Gemini extends Provider {
 		);
 
 		if ( is_wp_error( $response ) ) {
-			throw new Exception( $response->get_error_message() );
+			throw new Exception( esc_html( $response->get_error_message() ) );
 		}
 
 		$data = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( ! empty( $data['error'] ) ) {
-			throw new Exception( $data['error']['message'] );
+			throw new Exception( esc_html( $data['error']['message'] ) );
 		}
 
 		return trim( $data['candidates'][0]['content']['parts'][0]['text'] ?? '' );

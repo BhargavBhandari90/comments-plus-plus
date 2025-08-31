@@ -1,8 +1,8 @@
 <?php
 /**
- * Class for custom work.
+ * Settings page for Comments Plus Plus.
  *
- * @package Comment_PP
+ * @package CommentsPlusPlus
  */
 
 namespace CommentsPlusPlus\Admin;
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class for fofc core.
+ * Class for plugin settings.
  */
 class Settings {
 
@@ -326,7 +326,6 @@ class Settings {
 	public function bwp_cpp_setting_section_cb( $args ) {
 		?>
 		<p id="<?php echo esc_attr( $args['id'] ); ?>"><?php echo wp_kses_post( $args['description'] ); ?></p>
-		<table class="form-table" role="presentation">
 		<?php
 	}
 
@@ -401,9 +400,7 @@ class Settings {
 					</option>
 					<?php if ( ! empty( $options ) ) : ?>
 						<?php foreach ( $options as $key => $option ) : ?>
-							<option value="<?php echo esc_attr( $key ); ?>"
-								<?php echo ! empty( $value ) ? selected( $value, $key, false ) : ''; ?>
-							>
+							<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $value, $key ); ?>>
 								<?php echo esc_html( $option ); ?>
 							</option>
 						<?php endforeach; ?>
@@ -441,7 +438,7 @@ class Settings {
 			return $models;
 		}
 
-		$url = 'https://generativelanguage.googleapis.com/v1/models?key=' . $api_key;
+		$url = 'https://generativelanguage.googleapis.com/v1/models?key=' . rawurlencode( $api_key );
 
 		$response = wp_remote_get( $url );
 

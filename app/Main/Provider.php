@@ -1,6 +1,17 @@
 <?php
+/**
+ * Abstract Provider class for Comments Plus Plus.
+ *
+ * @package CommentsPlusPlus
+ */
+
 namespace CommentsPlusPlus\Main;
 
+/**
+ * Abstract Class Provider.
+ *
+ * Defines the contract for AI providers.
+ */
 abstract class Provider {
 	/**
 	 * Method to send prompt to AI provider.

@@ -12,7 +12,7 @@
  * Requires at least: 6.6
  * Requires PHP:     8.0
  *
- * @package         Comments_Plus_Plus
+ * @package         CommentsPlusPlus
  */
 
 namespace CommentsPlusPlus;
@@ -73,7 +73,6 @@ final class CommentsPlusPlus {
 		define( 'BWPCPP_VERSION', self::VERSION );
 		define( 'BWPCPP_PATH', plugin_dir_path( __FILE__ ) );
 		define( 'BWPCPP_URL', plugin_dir_url( __FILE__ ) );
-		define( 'BWPCPP_BASE_NAME', plugin_basename( __FILE__ ) );
 		define( 'BWPCPP_MAIN_FILE', __FILE__ );
 	}
 
@@ -97,7 +96,7 @@ final class CommentsPlusPlus {
 	private function init_hooks(): void {
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'plugin_loader' ) );
-		add_filter( 'plugin_action_links_' . BWPCPP_BASE_NAME, array( $this, 'add_settings_link' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'add_settings_link' ) );
 	}
 
 	/**
@@ -132,7 +131,7 @@ final class CommentsPlusPlus {
 	 * @return void
 	 */
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'comments-plus-plus', false, dirname( BWPCPP_BASE_NAME ) . '/languages' );
+		load_plugin_textdomain( 'comments-plus-plus', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	/**

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ruleset name="Comments Plus Plus Coding Standards">
+    <description>Custom ruleset for Comments Plus Plus.</description>
+
+    <rule ref="WordPress">
+        <!-- Exclude filename rules -->
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+    </rule>
+
+    <!-- Specify which files to scan -->
+    <file>.</file>
+
+    <!-- Only scan PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Optional: ignore vendor and node_modules folders -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+</ruleset>

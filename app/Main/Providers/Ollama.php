@@ -62,13 +62,13 @@ class Ollama extends Provider {
 		);
 
 		if ( is_wp_error( $response ) ) {
-			throw new Exception( $response->get_error_message() );
+			throw new Exception( esc_html( $response->get_error_message() ) );
 		}
 
 		$data = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( ! empty( $data['error'] ) ) {
-			throw new Exception( $data['error'] );
+			throw new Exception( esc_html( $data['error'] ) );
 		}
 
 		return trim( $data['response'] ?? '' );
