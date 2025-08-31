@@ -39,26 +39,24 @@ class Main {
 	 * @return void
 	 */
 	public function enqueue_assets(): void {
-		$css_file = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? 'plugin.css' : 'plugin.min.css';
-		$js_file  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? 'plugin.js' : 'plugin.min.js';
 
 		wp_enqueue_style(
-			'comment-plus-plus',
-			trailingslashit( BWPCPP_URL ) . 'assets/css/' . $css_file,
+			'comments-plus-plus',
+			trailingslashit( BWPCPP_URL ) . 'build/plugin.css',
 			array(),
 			BWPCPP_VERSION
 		);
 
 		wp_enqueue_script(
-			'comment-plus-plus',
-			trailingslashit( BWPCPP_URL ) . 'assets/js/' . $js_file,
+			'comments-plus-plus',
+			trailingslashit( BWPCPP_URL ) . 'build/plugin.js',
 			array( 'jquery' ),
 			BWPCPP_VERSION,
 			true
 		);
 
 		wp_localize_script(
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'BWPCPP',
 			array(
 				'ajax_url'      => admin_url( 'admin-ajax.php' ),
