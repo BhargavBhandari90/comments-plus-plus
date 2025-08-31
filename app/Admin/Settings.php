@@ -56,10 +56,10 @@ class Settings {
 	public function bwp_cpp_admin_settings() {
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html__( 'Comment Plus Plus Settings', 'comment-plus-plus' ); ?></h1>
+			<h1><?php echo esc_html__( 'Comment Plus Plus Settings', 'comments-plus-plus' ); ?></h1>
 			<form method="post" action="options.php" novalidate="novalidate">
 				<?php settings_fields( 'bwpcpp_settings' ); ?>
-				<?php do_settings_sections( 'comment-plus-plus' ); ?>
+				<?php do_settings_sections( 'comments-plus-plus' ); ?>
 				<?php submit_button(); ?>
 			</form>
 		</div>
@@ -85,19 +85,19 @@ class Settings {
 		// AI Provider Section.
 		add_settings_section(
 			'bwpcpp_provider_section',
-			esc_html__( 'AI Provider', 'comment-plus-plus' ),
+			esc_html__( 'AI Provider', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_section_cb' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			array(
-				'description' => esc_html__( 'Select which AI provider to use.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Select which AI provider to use.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'ai_provider',
-			esc_html__( 'Enable AI', 'comment-plus-plus' ),
+			esc_html__( 'Enable AI', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_provider_section',
 			array(
 				'name'    => 'ai_provider',
@@ -114,160 +114,160 @@ class Settings {
 		// Ollama Section.
 		add_settings_section(
 			'bwpcpp_ollama_section',
-			esc_html__( 'Ollama', 'comment-plus-plus' ),
+			esc_html__( 'Ollama', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_section_cb' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			array(
-				'description' => esc_html__( 'Settings for Ollama.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Settings for Ollama.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'ollama_url',
-			esc_html__( 'URL', 'comment-plus-plus' ),
+			esc_html__( 'URL', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_ollama_section',
 			array(
 				'name'        => 'ollama_url',
 				'class'       => 'regular-text',
 				'type'        => 'text',
-				'description' => esc_html__( 'Enter your Ollama API URL.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Enter your Ollama API URL.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'ollama_model',
-			esc_html__( 'Model', 'comment-plus-plus' ),
+			esc_html__( 'Model', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_ollama_section',
 			array(
 				'name'        => 'ollama_model',
 				'class'       => 'regular-text',
 				'type'        => 'text',
-				'description' => esc_html__( 'Enter the Ollama model to use (e.g., llama3).', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Enter the Ollama model to use (e.g., llama3).', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'ollama_prompt',
-			esc_html__( 'Prompt', 'comment-plus-plus' ),
+			esc_html__( 'Prompt', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_ollama_section',
 			array(
 				'name'        => 'ollama_prompt',
 				'class'       => 'large-text',
 				'type'        => 'textarea',
-				'description' => esc_html__( 'Set the system prompt for Ollama.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Set the system prompt for Ollama.', 'comments-plus-plus' ),
 			)
 		);
 
 		// OpenAI Section.
 		add_settings_section(
 			'bwpcpp_openai_section',
-			esc_html__( 'OpenAI', 'comment-plus-plus' ),
+			esc_html__( 'OpenAI', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_section_cb' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			array(
-				'description' => esc_html__( 'Settings for OpenAI.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Settings for OpenAI.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'openai_api_key',
-			esc_html__( 'API Key', 'comment-plus-plus' ),
+			esc_html__( 'API Key', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_openai_section',
 			array(
 				'name'        => 'openai_api_key',
 				'class'       => 'regular-text',
 				'type'        => 'password',
-				'description' => __( 'Get OpenAI key from <a href="https://platform.openai.com/api-keys" target="_blank">here</a>.', 'comment-plus-plus' ),
+				'description' => __( 'Get OpenAI key from <a href="https://platform.openai.com/api-keys" target="_blank">here</a>.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'openai_model',
-			esc_html__( 'Model', 'comment-plus-plus' ),
+			esc_html__( 'Model', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_openai_section',
 			array(
 				'name'        => 'openai_model',
 				'class'       => 'regular-text',
 				'type'        => 'text',
-				'description' => esc_html__( 'Enter the OpenAI model to use (e.g., gpt-4o).', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Enter the OpenAI model to use (e.g., gpt-4o).', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'openai_prompt',
-			esc_html__( 'Prompt', 'comment-plus-plus' ),
+			esc_html__( 'Prompt', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_openai_section',
 			array(
 				'name'        => 'openai_prompt',
 				'class'       => 'large-text',
 				'type'        => 'textarea',
-				'description' => esc_html__( 'Set the system prompt for OpenAI.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Set the system prompt for OpenAI.', 'comments-plus-plus' ),
 			)
 		);
 
 		// Gemini AI Section.
 		add_settings_section(
 			'bwpcpp_gemini_section',
-			esc_html__( 'Gemini AI', 'comment-plus-plus' ),
+			esc_html__( 'Gemini AI', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_section_cb' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			array(
-				'description' => esc_html__( 'Settings for Gemini AI.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Settings for Gemini AI.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'gemini_api_key',
-			esc_html__( 'API Key', 'comment-plus-plus' ),
+			esc_html__( 'API Key', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_gemini_section',
 			array(
 				'name'        => 'gemini_api_key',
 				'class'       => 'regular-text',
 				'type'        => 'password',
-				'description' => __( 'Get Gemini key from <a href="https://aistudio.google.com/app/apikey" target="_blank">here</a>.', 'comment-plus-plus' ),
+				'description' => __( 'Get Gemini key from <a href="https://aistudio.google.com/app/apikey" target="_blank">here</a>.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'gemini_model',
-			esc_html__( 'Model', 'comment-plus-plus' ),
+			esc_html__( 'Model', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_gemini_section',
 			array(
 				'name'        => 'gemini_model',
 				'class'       => 'regular-text',
 				'type'        => 'select',
 				'options'     => $this->bwp_cpp_gemini_models(),
-				'description' => esc_html__( 'Select model. If you don\'t see any, save your API key first.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Select model. If you don\'t see any, save your API key first.', 'comments-plus-plus' ),
 			)
 		);
 
 		add_settings_field(
 			'gemini_prompt',
-			esc_html__( 'Prompt', 'comment-plus-plus' ),
+			esc_html__( 'Prompt', 'comments-plus-plus' ),
 			array( $this, 'bwp_cpp_setting_field_callback' ),
-			'comment-plus-plus',
+			'comments-plus-plus',
 			'bwpcpp_gemini_section',
 			array(
 				'name'        => 'gemini_prompt',
 				'class'       => 'large-text',
 				'type'        => 'textarea',
-				'description' => esc_html__( 'Set the system prompt for Gemini AI.', 'comment-plus-plus' ),
+				'description' => esc_html__( 'Set the system prompt for Gemini AI.', 'comments-plus-plus' ),
 			)
 		);
 	}
@@ -397,7 +397,7 @@ class Settings {
 					name="bwpcpp_settings[<?php echo esc_attr( $field_name ); ?>]"
 				>
 					<option value="">
-						<?php esc_html_e( 'Select Option', 'comment-plus-plus' ); ?>
+						<?php esc_html_e( 'Select Option', 'comments-plus-plus' ); ?>
 					</option>
 					<?php if ( ! empty( $options ) ) : ?>
 						<?php foreach ( $options as $key => $option ) : ?>

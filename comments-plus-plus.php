@@ -12,7 +12,7 @@
  * Requires at least: 6.6
  * Requires PHP:     8.0
  *
- * @package         Comment_PP
+ * @package         Comments_Plus_Plus
  */
 
 namespace CommentsPlusPlus;
@@ -28,6 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Main Class.
  */
 final class CommentsPlusPlus {
+
+	/**
+	 * Plugin Version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.0.0';
 
 	/**
 	 * Class instance.
@@ -47,6 +54,8 @@ final class CommentsPlusPlus {
 
 	/**
 	 * Singleton instance
+	 *
+	 * @return CommentsPlusPlus
 	 */
 	public static function instance(): CommentsPlusPlus {
 		if ( null === self::$instance ) {
@@ -61,22 +70,11 @@ final class CommentsPlusPlus {
 	 * @return void
 	 */
 	private function define_constants(): void {
-		if ( ! defined( 'BWPCPP_VERSION' ) ) {
-			/** * The version of the plugin. */
-			define( 'BWPCPP_VERSION', '1.0.0' );
-		} if ( ! defined( 'BWPCPP_PATH' ) ) {
-			/** * The server file system path to the plugin directory. */
-			define( 'BWPCPP_PATH', plugin_dir_path( __FILE__ ) );
-		} if ( ! defined( 'BWPCPP_URL' ) ) {
-			/** * The url to the plugin directory. */
-			define( 'BWPCPP_URL', plugin_dir_url( __FILE__ ) );
-		} if ( ! defined( 'BWPCPP_BASE_NAME' ) ) {
-			/** * The url to the plugin directory. */
-			define( 'BWPCPP_BASE_NAME', plugin_basename( __FILE__ ) );
-		} if ( ! defined( 'BWPCPP_MAIN_FILE' ) ) {
-			/** * The url to the plugin directory. */
-			define( 'BWPCPP_MAIN_FILE', __FILE__ );
-		}
+		define( 'BWPCPP_VERSION', self::VERSION );
+		define( 'BWPCPP_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'BWPCPP_URL', plugin_dir_url( __FILE__ ) );
+		define( 'BWPCPP_BASE_NAME', plugin_basename( __FILE__ ) );
+		define( 'BWPCPP_MAIN_FILE', __FILE__ );
 	}
 
 	/**
@@ -97,9 +95,9 @@ final class CommentsPlusPlus {
 	 * @return void
 	 */
 	private function init_hooks(): void {
-		add_filter( 'plugin_action_links_' . BWPCPP_BASE_NAME, array( $this, 'add_settings_link' ) );
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'plugin_loader' ) );
+		add_filter( 'plugin_action_links_' . BWPCPP_BASE_NAME, array( $this, 'add_settings_link' ) );
 	}
 
 	/**
@@ -109,11 +107,21 @@ final class CommentsPlusPlus {
 	 * @return array       Modified array of plugin links.
 	 */
 	public function add_settings_link( array $links ): array {
+		$settings_url = admin_url( 'admin.php?page=comments-plus-plus' );
+
+		/**
+		 * Filters the settings link URL.
+		 *
+		 * @param string $settings_url The settings link URL.
+		 */
+		$settings_url = apply_filters( 'bwpcpp_settings_link_url', $settings_url );
+
 		$settings_link = sprintf(
 			'<a href="%1$s">%2$s</a>',
-			'admin.php?page=comments-plus-plus',
+			esc_url( $settings_url ),
 			esc_html__( 'Settings', 'comments-plus-plus' )
 		);
+
 		array_unshift( $links, $settings_link );
 		return $links;
 	}
@@ -124,15 +132,7 @@ final class CommentsPlusPlus {
 	 * @return void
 	 */
 	public function load_textdomain(): void {
-		$mofile = trailingslashit( BWPCPP_PATH ) . 'languages/cpp-' . get_locale() . '.mo';
-
-		if ( ! file_exists( $mofile ) ) {
-			$mofile = trailingslashit( BWPCPP_PATH ) . 'languages/default.mo';
-		}
-
-		if ( file_exists( $mofile ) ) {
-			load_textdomain( 'comments-plus-plus', $mofile );
-		}
+		load_plugin_textdomain( 'comments-plus-plus', false, dirname( BWPCPP_BASE_NAME ) . '/languages' );
 	}
 
 	/**
