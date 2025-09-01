@@ -16,12 +16,39 @@
 
 A different experience of commenting.
 
-## Installation ##
+## Prerequisites
+- [Node/NPM](https://nodejs.org/en/download/)
+- [NVM](https://github.com/nvm-sh/nvm)
+- [Composer](https://getcomposer.org/)
 
-This section describes how to install the plugin and get it working.
+## Development Setup
+1. Go to plugin's root
+2. Run `composer install`
+2. Run `npm install`
+5. To watch for changes, run `npm start`
 
-1. Upload the plugin files to the `/wp-content/plugins/comment-plus-plus` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
+## Development
+
+To auto-load files, run:
+
+    composer dump-autoload
+
+To create a publish ready plugin, run:
+
+	npm run build
+
+To format code, run:
+
+	npm run format
+
+To lint JS, run:
+
+	npm run lint:js
+
+To lint CSS, run:
+
+	npm run lint:css
+
 
 ## Changelog ##
 

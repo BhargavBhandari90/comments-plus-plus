@@ -6,7 +6,7 @@
 	#comment {
 		position: relative;
 		background: transparent;
-		caret-color: black;
+		caret-color: #000;
 		resize: none;
 	}
 
@@ -31,7 +31,7 @@
 		#comment-mirror {
 			height: 100%;
 			width: auto;
-			padding: calc(.667em + 2px);
+			padding: calc(0.667em + 2px);
 			color: transparent;
 			letter-spacing: normal;
 
