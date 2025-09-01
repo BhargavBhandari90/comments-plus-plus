@@ -23,6 +23,8 @@ A different experience of commenting in WordPress.
     - Ollama
     - OpenAI
 
+More features are coming....
+
 ## Prerequisites
 - [Node/NPM](https://nodejs.org/en/download/)
 - [Composer](https://getcomposer.org/)
