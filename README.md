@@ -18,7 +18,6 @@ A different experience of commenting.
 
 ## Prerequisites
 - [Node/NPM](https://nodejs.org/en/download/)
-- [NVM](https://github.com/nvm-sh/nvm)
 - [Composer](https://getcomposer.org/)
 
 ## Development Setup
