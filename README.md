@@ -1,4 +1,7 @@
 # Comments Plus Plus #
+[![Lint JS](https://github.com/BhargavBhandari90/comments-plus-plus/actions/workflows/lint-js.yml/badge.svg)](https://github.com/BhargavBhandari90/comments-plus-plus/actions/workflows/lint-js.yml)
+[![WPCS](https://github.com/BhargavBhandari90/comments-plus-plus/actions/workflows/wpcs.yml/badge.svg)](https://github.com/BhargavBhandari90/comments-plus-plus/actions/workflows/wpcs.yml)
+
 **Contributors:** [bhargavbhandari90](https://profiles.wordpress.org/bhargavbhandari90/)  
 **Donate link:** https://www.paypal.me/BnB90/20  
 **Tags:** plugin  
@@ -19,9 +22,6 @@ This section describes how to install the plugin and get it working.
 
 1. Upload the plugin files to the `/wp-content/plugins/comment-plus-plus` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-
-## GIT Repo ##
-
 
 ## Changelog ##
 
