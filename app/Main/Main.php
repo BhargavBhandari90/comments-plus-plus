@@ -42,14 +42,14 @@ class Main {
 
 		wp_enqueue_style(
 			'comments-plus-plus',
-			trailingslashit( BWPCPP_URL ) . 'build/plugin.css',
+			trailingslashit( BWPCPP_URL ) . 'build/main.css',
 			array(),
 			BWPCPP_VERSION
 		);
 
 		wp_enqueue_script(
 			'comments-plus-plus',
-			trailingslashit( BWPCPP_URL ) . 'build/plugin.js',
+			trailingslashit( BWPCPP_URL ) . 'build/main.js',
 			array( 'jquery' ),
 			BWPCPP_VERSION,
 			true
