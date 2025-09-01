@@ -14,7 +14,14 @@
 
 ## Description ##
 
-A different experience of commenting.
+A different experience of commenting in WordPress.
+
+## Features ##
+
+- Gmail like auto-complete replies while typing using following AIs.
+    - Gemini
+    - Ollama
+    - OpenAI
 
 ## Prerequisites
 - [Node/NPM](https://nodejs.org/en/download/)
