@@ -1,14 +1,14 @@
-/* global BWPCPP, jQuery
- *
- * Custom JS
- */
+/* global BWPCPP, jQuery */
 
 let currentRequest = null;
 
 ( function ( $ ) {
 	'use strict';
 
-	// Fetch suggestion from API
+	/**
+	 * Fetch suggestion from API
+	 * @return {void}
+	 */
 	function fetchSuggestion() {
 		let lastText = '';
 		let suggestion = '';
@@ -51,7 +51,14 @@ let currentRequest = null;
 		} );
 	}
 
-	// Show inline ghost text (like Gmail)
+	/**
+	 * Show ghost suggestion in the comment mirror.
+	 *
+	 * @param {string} currentText
+	 * @param {string} fullSuggestion
+	 * @param {string} fullText
+	 * @return {void}
+	 */
 	function showGhostSuggestion( currentText, fullSuggestion, fullText ) {
 		if ( ! fullSuggestion.includes( currentText ) ) {
 			return;
@@ -67,15 +74,18 @@ let currentRequest = null;
 		ghost.text( fullSuggestion ).show();
 	}
 
+	/**
+	 * Get the current sentence being typed.
+	 *
+	 * @param {string} text
+	 * @return {string} The current sentence being typed.
+	 */
 	function getCurrentSentence( text ) {
-		// Split text by sentence-ending punctuation.
-		// const sentences = text.split(/(?<=[.?!])\s+/);
 		const sentences = text
-			.split( /(?<=[.?!])\s+/ ) // Split on punctuation + space
+			.split( /(?<=[.?!])\s+/ )
 			.map( ( s ) => s.trim() )
 			.filter( ( s ) => ! /[.?!]$/.test( s ) );
 
-		// Return only the last part (new sentence being written).
 		return sentences[ sentences.length - 1 ];
 	}
 
