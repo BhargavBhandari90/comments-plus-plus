@@ -1,11 +1,15 @@
 === Comments Plus Plus ===
+=== Comments Plus Plus ===
 Contributors:      bhargavbhandari90, biliplugins
 Donate link:       https://www.paypal.me/BnB90/20
 Tags:              comments, auto-suggestion, comments++
+Tags:              comments, auto-suggestion, comments++
 Requires at least: 6.6
+Tested up to:      6.8
 Tested up to:      6.8
 Stable tag:        1.0.0
 License:           GPL-2.0-or-later
+Requires PHP:      8.0
 Requires PHP:      8.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,6 +21,7 @@ A gmail like auto-complete suggestion while adding comments.
 
 == Installation ==
 
+1. Upload the plugin files to the `/wp-content/plugins/comments-plus-plus` directory, or install the plugin through the WordPress plugins screen directly.
 1. Upload the plugin files to the `/wp-content/plugins/comments-plus-plus` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 
@@ -73,6 +78,30 @@ You must provide your own OpenAI API key for the plugin to function. Without it,
 *Privacy Policy:* https://openai.com/policies/privacy-policy
 
 == GitHub Repo ==
+[https://github.com/BhargavBhandari90/comments-plus-plus](https://github.com/BhargavBhandari90/comments-plus-plus)
+
+== Frequently Asked Questions ==
+
+= Do I need an API key to use this plugin? =
+Yes. You must provide your own API key for Gemini or OpenAI. Ollama works locally and does not require a remote API key.
+
+= Is my data stored anywhere? =
+No. The plugin only sends the prompt and visible page content to the selected AI provider in real-time. It does not store data on external servers unless required by the provider.
+
+= Can I use this plugin without an internet connection? =
+Yes, if you use Ollama. Since Ollama runs locally, no internet connection is required (except for initial installation of Ollama and model downloads).
+
+= Which AI providers are supported? =
+Currently, the plugin supports:
+- Google Generative AI (Gemini)
+- Ollama (Local)
+- OpenAI (ChatGPT models)
+
+= Does the plugin send personal information? =
+No personal data is sent unless you include it in your prompt or page content. You are responsible for the content you send to the AI providers.
+
+= Can I switch between AI providers? =
+Yes. You can select your preferred AI provider in the plugin settings at any time.
 [https://github.com/BhargavBhandari90/comments-plus-plus](https://github.com/BhargavBhandari90/comments-plus-plus)
 
 == Frequently Asked Questions ==
