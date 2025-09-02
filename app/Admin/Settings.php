@@ -38,8 +38,8 @@ class Settings {
 	 */
 	public function bwp_cpp_settings_page() {
 		add_menu_page(
-			esc_html__( 'Comment Plus Plus Settings', 'comments-plus-plus' ),
-			esc_html__( 'Comment Plus Plus', 'comments-plus-plus' ),
+			esc_html__( 'Comments Plus Plus Settings', 'comments-plus-plus' ),
+			esc_html__( 'Comments++', 'comments-plus-plus' ),
 			'manage_options',
 			'comments-plus-plus',
 			array( $this, 'bwp_cpp_admin_settings' ),
