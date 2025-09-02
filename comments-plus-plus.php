@@ -131,7 +131,7 @@ final class CommentsPlusPlus {
 	 * @return void
 	 */
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'comments-plus-plus', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_textdomain( 'comments-plus-plus', dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	/**

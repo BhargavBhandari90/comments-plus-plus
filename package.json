@@ -9,6 +9,7 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
+		"makepot": "wp i18n make-pot . languages/comments-plus-plus.pot --exclude=node_modules,vendor,tests && echo '.pot file updated'",
 		"start": "wp-scripts start ./assets/js/main.js --output-path=./build"
 	},
 	"keywords": [
